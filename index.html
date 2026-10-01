@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>مساعدي AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <button class="icon-btn" id="menuBtn" aria-label="القائمة">☰</button>
+      <div class="brand">
+        <div class="logo">✦</div>
+        <div><strong>مساعدي AI</strong><small>مساعدك الذكي</small></div>
+      </div>
+      <button class="icon-btn" id="themeBtn" aria-label="الوضع الليلي">☾</button>
+    </header>
+
+    <main id="chat" class="chat">
+      <section id="welcome" class="welcome">
+        <div class="welcome-icon">🤖</div>
+        <h1>مرحبًا 👋</h1>
+        <p>أنا مساعدك الذكي. اكتب سؤالك وسأساعدك قدر الإمكان.</p>
+        <div class="suggestions">
+          <button data-prompt="اكتب لي خطة لتعلم الإنجليزية من الصفر">📚 تعلم الإنجليزية</button>
+          <button data-prompt="اكتب لي فكرة مشروع صغير">💡 فكرة مشروع</button>
+          <button data-prompt="اشرح لي الذكاء الاصطناعي بطريقة بسيطة">🧠 شرح مبسط</button>
+          <button data-prompt="اكتب لي نصًا إبداعيًا قصيرًا">✍️ كتابة إبداعية</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="composer-wrap">
+      <div id="typing" class="typing hidden"><span></span><span></span><span></span> يكتب الآن...</div>
+      <form id="composer" class="composer">
+        <button type="button" class="tool-btn" id="attachBtn" title="إرفاق">＋</button>
+        <input id="fileInput" type="file" hidden accept="image/*,.pdf,.txt,.doc,.docx">
+        <textarea id="message" rows="1" placeholder="اكتب رسالتك هنا..." autocomplete="off"></textarea>
+        <button type="button" class="tool-btn" id="micBtn" title="إملاء صوتي">🎙️</button>
+        <button type="submit" class="send-btn" title="إرسال">➤</button>
+      </form>
+      <div class="hint">مساعدي AI قد يخطئ أحيانًا، تحقّق من المعلومات المهمة.</div>
+    </div>
+  </div>
+
+  <aside id="drawer" class="drawer">
+    <div class="drawer-head"><strong>مساعدي AI</strong><button id="closeDrawer">×</button></div>
+    <button id="newChat" class="drawer-item">＋ محادثة جديدة</button>
+    <button id="settingsBtn" class="drawer-item">⚙️ الإعدادات</button>
+    <div class="drawer-note">هذه النسخة تعمل محليًا. يمكنك إضافة مفتاح API من الإعدادات لربطها بخدمة ذكاء اصطناعي.</div>
+  </aside>
+  <div id="overlay" class="overlay"></div>
+
+  <dialog id="settings">
+    <div class="modal">
+      <div class="modal-head"><h2>الإعدادات</h2><button id="closeSettings">×</button></div>
+      <label>رابط API
+        <input id="apiUrl" placeholder="https://example.com/v1/chat/completions">
+      </label>
+      <label>مفتاح API
+        <input id="apiKey" type="password" placeholder="ضع المفتاح هنا">
+      </label>
+      <label>اسم النموذج
+        <input id="model" placeholder="اسم النموذج">
+      </label>
+      <p class="small">يُحفظ المفتاح في هذا المتصفح فقط. لا تضع مفتاحًا سريًا في تطبيق عام قبل إضافة خادم وسيط آمن.</p>
+      <button id="saveSettings" class="primary">حفظ الإعدادات</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
